@@ -1,0 +1,23 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "otm-scraper"
+version = "1.0.0"
+description = "Scrape WashU OTM Disclose Inventions pages into a Markdown knowledgebase"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "httpx>=0.27.0",
+  "beautifulsoup4>=4.12.0",
+  "trafilatura>=1.12.0",
+  "markdownify>=0.13.1",
+  "pyyaml>=6.0.1",
+]
+
+[project.scripts]
+otm-scraper = "otm_scraper.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

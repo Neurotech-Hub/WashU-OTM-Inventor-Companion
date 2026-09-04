@@ -1,0 +1,13 @@
+seed_url: https://otm.wustl.edu/disclose-inventions/
+allowed_hosts:
+  - otm.wustl.edu
+allowed_path_prefixes:
+  - /disclose-inventions/
+extra_urls:
+  - https://otm.wustl.edu/forms/
+  # Linked from Disclose Inventions nav; may live under /items/ after redirect
+  - https://otm.wustl.edu/items/domain-expert-program/
+output_dir: kb
+request_delay_seconds: 0.75
+request_timeout_seconds: 30
+user_agent: OTMScraper/1.0 (+https://github.com/local/OTMScraper; personal knowledgebase)
