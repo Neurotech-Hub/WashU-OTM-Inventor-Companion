@@ -1,6 +1,11 @@
 # WashU OTM inventor companion
 
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Status](https://img.shields.io/badge/status-ALPHA-orange)
+
 Tools to help **WashU inventors** give **OTM case managers** clearer context around an invention: a short, structured interview prompt plus a periodically refreshed snapshot of public [Office of Technology Management](https://otm.wustl.edu/disclose-inventions/) pages.
+
+**ALPHA:** workflows and prompts may change without notice. Not an official WashU or OTM product.
 
 This does **not** file a disclosure, replace [InnovateIP](https://otminnovate.wustl.edu/log_in/), or give legal advice. The official record is still the InnovateIP form. The interview produces a **companion brief** you can attach so OTM can understand the story, evidence, and landscape faster.
 

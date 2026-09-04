@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "otm-scraper"
-version = "1.0.0"
-description = "Scrape WashU OTM Disclose Inventions pages into a Markdown knowledgebase"
+version = "0.1.0"
+description = "WashU OTM inventor companion: scrape public OTM pages and interview prompts for case-manager briefs"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
