@@ -1,9 +1,14 @@
 # WashU OTM inventor companion
 
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Latest build](https://img.shields.io/badge/latest_build-2026--09--04-brightgreen)
 ![Status](https://img.shields.io/badge/status-ALPHA-orange)
+![Tool version](https://img.shields.io/badge/tool-0.1.0-lightgrey)
+
+**Latest agent-prompt build:** 2026-09-04
 
 Tools to help **WashU inventors** give **OTM case managers** clearer context around an invention: a short, structured interview prompt plus a periodically refreshed snapshot of public [Office of Technology Management](https://otm.wustl.edu/disclose-inventions/) pages.
+
+The **latest build** date is the practical freshness signal for inventors (when [`build/agent-prompt.md`](build/agent-prompt.md) was last regenerated from the interview prompt + OTM knowledgebase). The grey tool version is secondary and may matter more for individual files later.
 
 **ALPHA:** workflows and prompts may change without notice. Not an official WashU or OTM product.
 
@@ -53,7 +58,7 @@ python -m otm_scraper
 python scripts/combine_agent_prompt.py
 ```
 
-Rebuilds `kb/pages/`, `kb/INDEX.md`, `kb/ALL.md`, and the inventor-facing [`build/agent-prompt.md`](build/agent-prompt.md). Commit the refreshed `kb/` and `build/agent-prompt.md` when publishing updates.
+Rebuilds `kb/pages/`, `kb/INDEX.md`, `kb/ALL.md`, and the inventor-facing [`build/agent-prompt.md`](build/agent-prompt.md). The combiner also stamps **Latest agent-prompt build** (and the badge) in this README. Commit the refreshed `kb/`, `build/agent-prompt.md`, and `README.md` when publishing updates.
 
 **Crawl scope:** public HTML under `/disclose-inventions/` plus configured extras (default: `/forms/`). Not included: InnovateIP login content, PDF text extraction. Edit [`config.yaml`](config.yaml) for seeds, allowlists, or delay.
 
