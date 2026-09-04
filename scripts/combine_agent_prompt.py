@@ -25,11 +25,11 @@ def combine(prompt_path: Path, kb_path: Path, out_path: Path) -> None:
 
     header = "\n".join(
         [
-            "# Combined agent prompt",
+            "# WashU OTM inventor companion (agent upload)",
             "",
             f"Generated: {date.today().isoformat()}",
-            f"Sources: `{prompt_path.name}` (instructions) then `{kb_path.name}` (OTM knowledgebase).",
-            "Edit those files independently; do not edit this combined file.",
+            "Includes the invention interview instructions plus an up-to-date snapshot of public OTM pages.",
+            f"Sources: `{prompt_path.name}` then `{kb_path.name}`. Edit those independently; regenerate this file.",
             "Regenerate with: `python scripts/combine_agent_prompt.py`",
             "",
             "---",

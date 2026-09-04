@@ -15,8 +15,10 @@ This does **not** file a disclosure, replace [InnovateIP](https://otminnovate.wu
 
 ### How to run the interview (~10 minutes)
 
-1. Open an **institutionally approved** AI chat (or a Gem/agent your department has configured with this repo’s prompt).
-2. If you are pasting the prompt yourself, copy everything **below the line** in [`prompts/invention-interview.md`](prompts/invention-interview.md).
+1. Open an **institutionally approved** AI chat (or a Gem/agent your department has configured).
+2. Load the agent file into that tool:
+   - **Preferred:** [Download `agent-prompt.md`](https://raw.githubusercontent.com/Neurotech-Hub/WashU-OTM-Inventor-Companion/main/build/agent-prompt.md), then drag the file into the agent interface (or attach / upload it if the product supports that). This file includes the interview instructions **and** an up-to-date, extensive reference to public OTM resources (process, Gap Fund, DEP, policies, and related pages).
+   - **Secondary:** [Download `invention-interview.md`](https://raw.githubusercontent.com/Neurotech-Hub/WashU-OTM-Inventor-Companion/main/prompts/invention-interview.md) (interview prompt only, no OTM knowledgebase), or open [`prompts/invention-interview.md`](prompts/invention-interview.md), copy the **entire** file, and paste it as the first message or system / custom instructions.
 3. Answer the confidentiality question first. Describe the invention only after you can confirm the tool is approved.
 4. Complete the short interview. Download the Word brief (`OTM-companion-brief.docx` when the AI can produce it).
 5. **File your disclosure in InnovateIP** and **upload the brief as a companion attachment**. You may also copy the Invention Description into the form. The brief does not replace the form.
@@ -31,10 +33,11 @@ Questions about policy or filing: [otm@wustl.edu](mailto:otm@wustl.edu) · [Disc
 
 | Piece | Role |
 | --- | --- |
-| [`prompts/invention-interview.md`](prompts/invention-interview.md) | Interview instructions for the AI (case-manager brief, not a second form) |
+| [`build/agent-prompt.md`](build/agent-prompt.md) | **Default agent upload:** interview prompt + OTM knowledgebase |
+| [`prompts/invention-interview.md`](prompts/invention-interview.md) | Interview instructions only (secondary / prompt-only use) |
 | [`kb/`](kb/) | Scraped public OTM pages (process, Gap Fund, DEP, policies, contacts) |
 | `python -m otm_scraper` | Refresh `kb/` from otm.wustl.edu |
-| `python scripts/combine_agent_prompt.py` | One file: prompt + knowledgebase for a single agent/Gem upload |
+| `python scripts/combine_agent_prompt.py` | Rebuild `build/agent-prompt.md` after prompt or KB changes |
 
 Details for maintainers: [`prompts/README.md`](prompts/README.md).
 
@@ -47,15 +50,10 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -e .
 python -m otm_scraper
-```
-
-Rebuilds `kb/pages/`, `kb/INDEX.md`, and `kb/ALL.md`. Combine for one agent upload:
-
-```bash
 python scripts/combine_agent_prompt.py
 ```
 
-Writes `build/agent-prompt.md` (gitignored). Re-run the scraper when OTM updates public pages, then re-combine and re-upload to the agent.
+Rebuilds `kb/pages/`, `kb/INDEX.md`, `kb/ALL.md`, and the inventor-facing [`build/agent-prompt.md`](build/agent-prompt.md). Commit the refreshed `kb/` and `build/agent-prompt.md` when publishing updates.
 
 **Crawl scope:** public HTML under `/disclose-inventions/` plus configured extras (default: `/forms/`). Not included: InnovateIP login content, PDF text extraction. Edit [`config.yaml`](config.yaml) for seeds, allowlists, or delay.
 
@@ -63,5 +61,4 @@ Writes `build/agent-prompt.md` (gitignored). Re-run the scraper when OTM updates
 
 Code, interview prompt, and this documentation are under the [MIT License](LICENSE).
 
-`kb/` is a snapshot of **public web pages owned by Washington University in St. Louis**. It is not official OTM software, not an endorsement, and is not covered by the MIT License. Republish or rely on it only as your use of those public pages allows.
-
+`kb/` (and the knowledgebase section of `build/agent-prompt.md`) is a snapshot of **public web pages owned by Washington University in St. Louis**. It is not official OTM software, not an endorsement, and is not covered by the MIT License. Republish or rely on it only as your use of those public pages allows.
